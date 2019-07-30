@@ -24,4 +24,34 @@
       }
     }
   }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    justify-content: center;
+    align-content: center;
+    max-width: 1000px;
+    margin: auto;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  main {
+    max-width: 900px;
+    margin: auto;
+
+    section.desc {
+      p {
+        max-width: 500px;
+        font-size: 1.2em;
+        line-height: 1.3em;
+      }
+    }
+  }
 }

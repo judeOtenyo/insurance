@@ -1,0 +1,42 @@
+<div class="customContainer">
+  <mat-card>
+    <mat-card-header>
+      <a [routerLink]="['/Home']">
+        <img class="logo" src="/assets/images/logo.webp" alt="LOGO" height="150px"></a>
+      <h1>Log In</h1>
+      <div class="" *ngIf="authService.isLoggedIn()">
+        <h4>Hi, {{ authService.getName() }}
+        </h4>
+        <p>You are already Logged</p>
+        <button [routerLink]="['/Portal']" mat-raised-button color="primary">Dashboard</button>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- <app-authenticate (credentials)="login($event)"></app-authenticate> -->
+      <div class="form">
+        <form id=formId (ngSubmit)="login()" [formGroup]="loginForm">
+          <div *ngIf="LoginFailed" class="errorMessage">
+            <h5>Authentication Failed!</h5>
+            <p>{{ errorMessage }}</p>
+          </div>
+          <div class="form">
+            <mat-form-field>
+              <mat-label>Phone No</mat-label>
+              <input matInput placeholder="07********" type="text" required formControlName="phone">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput name="password" type="password" required formControlName="password">
+            </mat-form-field>
+            <button [disabled]='!loginForm.valid' type='submit' mat-raised-button color="primary">Log In</button>
+          </div>
+        </form>
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <h5>No account yet?
+        <a [routerLink]="['/Register']">Register</a></h5>
+    </mat-card-actions>
+  </mat-card>
+</div>
