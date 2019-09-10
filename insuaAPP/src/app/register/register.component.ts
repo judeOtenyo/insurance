@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../SERVICES/authentication.service';
+import { UserDataService } from '../SERVICES/user-data.service';
 
 @Component({
   selector: 'app-register',
@@ -21,12 +22,14 @@ export class RegisterComponent implements OnInit {
   });
   constructor(
     private router: Router,
-    public authService: AuthenticationService
+    public authService: AuthenticationService,
+    public userService: UserDataService
   ) {}
 
   ngOnInit() {}
 
   submit() {
-    console.log(this.newUserForm.value);
+    this.userService.newUser(this.newUserForm.value);
+    console.log(this.userService.userData);
   }
 }

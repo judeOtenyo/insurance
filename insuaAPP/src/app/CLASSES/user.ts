@@ -1,34 +1,11 @@
 export class UserDetails {
   _id?: string;
   name?: string;
+  phone?: string;
   email?: string;
+  password?: string;
   type?: string;
   status?: string;
-  permissions?: {
-    houses: {
-      read: boolean;
-      update: boolean;
-      delete: boolean;
-    };
-    employees: {
-      create: boolean;
-      read: boolean;
-      update: boolean;
-      delete: boolean;
-    };
-    tasks: {
-      create: boolean;
-      read: boolean;
-      update: boolean;
-      delete: boolean;
-    };
-    sales: {
-      create: boolean;
-      read: boolean;
-      update: boolean;
-      delete: boolean;
-    };
-  };
 }
 class UserToken {
   token: string;

@@ -1,26 +1,5 @@
 <div class="container">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <img src="" alt="logo" />
-      <ul>
-        <li>
-          <button [routerLink]="['/Login']" routerLinkActive="active" mat-raised-button color="secondary">
-            Login
-          </button></li>
-        <li>
-          <button (click)="authService.clearSession()" routerLinkActive=" active" mat-raised-button color="secondary">
-            Log Out
-          </button>
-        </li>
-        <li>
-          <button [routerLink]="['/Register']" routerLinkActive="active" mat-raised-button color="secondary">
-            Register
-          </button>
-        </li>
-        <li>PORTAL</li>
-      </ul>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <app-header></app-header>
   <Header>
     <div class="img">
       <img src="/assets/images/landing/relax.svg" alt="" />
@@ -51,3 +30,4 @@
     LOGO
   </footer>
 </div>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, debitis!

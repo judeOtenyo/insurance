@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../SERVICES/authentication.service';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserDataService } from '../SERVICES/user-data.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   });
   constructor(
     public authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private userService: UserDataService
   ) {}
   ngOnInit() {}
   login() {

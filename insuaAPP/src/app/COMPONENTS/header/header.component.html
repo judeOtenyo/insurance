@@ -1,0 +1,24 @@
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <img src="/assets/logo.png" alt="logo" height="70px" />
+      <ul>
+        <li>
+          <button *ngIf="userData.checkLoginStatus()" [routerLink]="['/Login']" routerLinkActive="active"
+            mat-raised-button color="secondary">
+            Login
+          </button></li>
+        <li>
+          <button [routerLink]="['/Register']" routerLinkActive="active" mat-raised-button color="secondary">
+            Register
+          </button>
+        </li>
+        <li><button mat-raised-button [routerLink]="['/Portal']">Portal</button></li>
+        <li><button mat-raised-button [routerLink]="['/Admin']">Admin</button></li>
+        <li>
+          <button (click)="userData.clearUser()" routerLinkActive=" active" mat-raised-button color="secondary">
+            Log Out
+          </button>
+        </li>
+      </ul>
+    </mat-toolbar-row>
+  </mat-toolbar>

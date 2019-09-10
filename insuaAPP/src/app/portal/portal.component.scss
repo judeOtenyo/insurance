@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: rgb(67, 67, 196);
+  min-height: 100%;
+  padding-bottom: 50px;
+
+  .productContainer {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: auto;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  }
+}

@@ -7,7 +7,7 @@ import { AuthenticationService } from '../SERVICES/authentication.service';
   styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements OnInit {
-  constructor(public authService: AuthenticationService) {}
+  constructor() {}
 
   ngOnInit() {}
 }

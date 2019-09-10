@@ -1,0 +1,30 @@
+        <div class="product {{ showClass }}">
+          <div class="popup">
+            <ng-container *ngIf="product.type === 'Investment'; then investment; else general"></ng-container>
+            <ng-template #investment>
+              <mat-form-field>
+                <input matInput placeholder="Years">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Monthly Contribution">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Expected return">
+              </mat-form-field>
+              <button mat-flat-button (click)="toggleClass()">Finish</button>
+            </ng-template>
+            <ng-template #general>
+              <mat-form-field>
+                <input matInput placeholder="Asset Value">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Asset Age">
+              </mat-form-field>
+              <button mat-flat-button (click)="toggleClass()">Finish</button>
+            </ng-template>
+          </div>
+          <h2>{{ product.name }}</h2>
+          <h3><span>Type:</span>{{ product.type }}</h3>
+          <p class="desc">{{ product.desc }}</p>
+          <button mat-raised-button (click)="toggleClass()">APPLY</button>
+        </div>

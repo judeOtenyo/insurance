@@ -1,0 +1,19 @@
+  mat-toolbar {
+    mat-toolbar-row {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: space-around;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+
+        li {
+          list-style-type: none;
+        }
+      }
+    }
+  }

@@ -1,0 +1,38 @@
+* {}
+
+.product {
+  padding: 10px;
+  padding-top: 30px;
+  min-height: 400px;
+  background-color: rgba(0, 0, 0, 0.075);
+  position: relative;
+  overflow: hidden;
+  transition: all .3s ease-in;
+
+
+  .popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(51, 51, 51);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px;
+
+    button {
+      margin: auto
+    }
+  }
+
+  &.show {
+    .popup {
+      transform: translateY(100%);
+      opacity: 0;
+      max-width: 300px;
+    }
+  }
+}

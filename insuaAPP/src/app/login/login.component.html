@@ -2,10 +2,12 @@
   <mat-card>
     <mat-card-header>
       <a [routerLink]="['/Home']">
-        <img class="logo" src="/assets/images/logo.webp" alt="LOGO" height="150px"></a>
+        <img class="logo" src="/assets/images/logo.png" alt="LOGO" height="150px"></a>
       <h1>Log In</h1>
-      <div class="" *ngIf="authService.isLoggedIn()">
-        <h4>Hi, {{ authService.getName() }}
+      <div class="" *ngIf="userService.checkLoginStatus()">
+        <h4>Hi, {{ userService.getName() }}
+          <!-- <div class="" *ngIf="authService.isLoggedIn()">
+        <h4>Hi, {{ authService.getName() }} -->
         </h4>
         <p>You are already Logged</p>
         <button [routerLink]="['/Portal']" mat-raised-button color="primary">Dashboard</button>

@@ -1,0 +1,70 @@
+.container {
+  background-color: #424242;
+  min-height: 100%;
+}
+
+header {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button {
+    margin: auto;
+  }
+
+  .newProduct {
+    max-width: 400px;
+    margin: auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+.customContainer {
+  padding: 50px 10vw;
+  min-height: 500px;
+  max-height: 90vh;
+  min-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+
+  main {
+    background-color: rgba(0, 0, 0, 0.178);
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 600px;
+
+    h1 {
+      color: white;
+      padding: 5px 40px;
+    }
+
+    .reqContainer {
+      padding: 15px 30px;
+      background-color: rgba(0, 0, 0, 0.055);
+
+      &:hover {
+        transform: scale(1.01);
+      }
+
+      .name {
+        font-weight: 600;
+        font-size: 1.2em;
+        color: wheat;
+      }
+
+      .product {
+        color: rgb(179, 179, 179);
+      }
+    }
+  }
+
+  aside {
+    background-color: gray;
+  }
+}

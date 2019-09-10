@@ -11,12 +11,27 @@ import { RegisterComponent } from './register/register.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { PortalComponent } from './portal/portal.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
+import { HeaderComponent } from './COMPONENTS/header/header.component';
+import { ProductComponent } from './COMPONENTS/product/product.component';
 @NgModule({
-  declarations: [AppComponent, LandingComponent, RegisterComponent, LoginComponent, PortalComponent],
+  declarations: [
+    AppComponent,
+    LandingComponent,
+    RegisterComponent,
+    LoginComponent,
+    PortalComponent,
+    AdminPageComponent,
+    HeaderComponent,
+    ProductComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,6 +43,9 @@ import { PortalComponent } from './portal/portal.component';
     MatCardModule,
     ReactiveFormsModule,
     FormsModule,
+    MatTabsModule,
+    MatIconModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

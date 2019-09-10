@@ -1,0 +1,48 @@
+<div class="container">
+  <app-header></app-header>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab label="REQUESTS">
+      <header>
+        <button mat-raised-button color="warn" (click)="addNew = !addNew">
+          <mat-icon>add</mat-icon> New Product
+        </button>
+        <div class="newProduct" *ngIf="addNew">
+          <form [formGroup]="newProductForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="label" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Type</mat-label>
+              <mat-select formControlName="type">
+                <mat-option value="Investment">Investment
+                </mat-option>
+                <mat-option value="General">General
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <input matInput placeholder="label" formControlName="desc">
+            </mat-form-field>
+            <button (disabled)="!newProductForm.valid" mat-flat-button color="accent"
+              (click)="submitProduct()">SUBMIT</button>
+          </form>
+        </div>
+      </header>
+      <div class="customContainer">
+        <main>
+          <h1>NEW REQUESTS</h1>
+          <li *ngFor="let item of items">
+            <div class="reqContainer">
+              <div class="name">name</div>
+              <div class="product">product</div>
+            </div>
+          </li>
+        </main>
+        <aside></aside>
+      </div>
+    </mat-tab>
+    <mat-tab label="Reports">Content 2</mat-tab>
+  </mat-tab-group>
+</div>
