@@ -33,16 +33,82 @@
       <div class="customContainer">
         <main>
           <h1>NEW REQUESTS</h1>
-          <li *ngFor="let item of items">
-            <div class="reqContainer">
-              <div class="name">name</div>
-              <div class="product">product</div>
+          <li *ngFor="let request of requests" (click)="displayItem(request._id)">
+            <div class="reqContainer" *ngIf="request.status === 'pending'">
+              <div class="name">{{ request?.user.name }}</div>
+              <div class="product">{{ request?.product.name }}</div>
             </div>
           </li>
         </main>
-        <aside></aside>
+        <aside>
+          <div>
+            <h2>User Details</h2>
+          </div>
+          <div>
+            <h3>User Name:</h3> {{ mainItem?.user.name }}
+          </div>
+          <div>
+            <h3>Phone No:</h3> {{ mainItem?.user.phone }}
+          </div>
+          <div>
+            <h3>E-Mail: </h3>{{ mainItem?.user.email }}
+          </div>
+          <div>
+            <h2>Product Details</h2>
+          </div>
+          <div>
+            <h3>Product Name:</h3> {{ mainItem?.product.name }}
+          </div>
+          <div>
+            <h3>Type:</h3> {{ mainItem?.product.type }}
+          </div>
+          <ng-container *ngIf="mainItem?.product.type === 'Investment'; then investment; else general"></ng-container>
+          <ng-template #investment>
+            <div>
+              <h3>years:</h3> {{ mainItem?.years }}
+            </div>
+            <div>
+              <h3>contribution:</h3> {{ mainItem?.contribution }}
+            </div>
+            <div>
+              <h3>Type:</h3> {{ mainItem?.amount * mainItem?.years * 12 *1.3 }}
+            </div>
+          </ng-template>
+          <ng-template #general>
+            <div>
+              <h3>age:</h3> {{ mainItem?.age }}
+            </div>
+            <div>
+              <h3>value:</h3> {{ mainItem?.value }}
+            </div>
+          </ng-template>
+          <div *ngIf="mainItem !== Undefined ">
+            <button mat-flat-button (click)="requestService.grantRequest(mainItem._id)">Approve</button>
+            <button mat-flat-button color="warn" (click)="requestService.blockRequest(mainItem._id)">Deny</button></div>
+        </aside>
       </div>
     </mat-tab>
-    <mat-tab label="Reports">Content 2</mat-tab>
+    <mat-tab label="Reports">
+      <div class="reports">
+        <section class="users">
+          <h1>Users</h1>
+          <mat-list>
+            <mat-list-item *ngFor="let user of userData.getAllUsers()">{{ user.name }}</mat-list-item>
+          </mat-list>
+        </section>
+        <section class="products">
+          <h1>Our Products</h1>
+          <mat-list>
+            <mat-list-item *ngFor="let product of productService.getAll()">{{ product.name }}</mat-list-item>
+          </mat-list>
+        </section>
+        <section class="policies">
+          <H1>Active Plans</H1>
+          <mat-list>
+            <mat-list-item *ngFor="let product of requestService.getAll()">{{ product.name }}</mat-list-item>
+          </mat-list>
+        </section>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 </div>

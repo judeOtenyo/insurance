@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../CLASSES/product';
 import { ProductService } from '../SERVICES/product.service';
+import { Request } from '../CLASSES/request';
+import { RequestService } from '../SERVICES/request.service';
+import { UserDataService } from '../SERVICES/user-data.service';
 
 @Component({
   selector: 'app-portal',
@@ -10,10 +13,21 @@ import { ProductService } from '../SERVICES/product.service';
 export class PortalComponent implements OnInit {
   showClass = 'show';
   products: Product[];
-  constructor(private productServices: ProductService) {}
+  requests: Request[];
+  constructor(
+    private productServices: ProductService,
+    public requestService: RequestService,
+    public userData: UserDataService
+  ) {}
 
   ngOnInit() {
+    const user = this.userData.getUserId();
+
     this.products = this.productServices.productData;
+    this.requests = this.requestService.allRequests.filter(
+      request => request.userId === user
+    );
+    console.log(this.requests);
   }
   toggleClass() {
     if (this.showClass === 'show') {

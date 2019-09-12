@@ -2,25 +2,40 @@
           <div class="popup">
             <ng-container *ngIf="product.type === 'Investment'; then investment; else general"></ng-container>
             <ng-template #investment>
-              <mat-form-field>
-                <input matInput placeholder="Years">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Monthly Contribution">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Expected return">
-              </mat-form-field>
-              <button mat-flat-button (click)="toggleClass()">Finish</button>
+              <form [formGroup]="investmentForm" (submit)=submitInvestment()>
+                <mat-form-field appearance="outline">
+                  <mat-label>Years</mat-label>
+                  <input matInput placeholder="Years" formControlName="years" type="number"
+                    (keyup)="calculateInvestment()">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Monthly Contribution</mat-label>
+                  <input matInput placeholder="Monthly Contribution" formControlName="contribution" type="number"
+                    (keyup)="calculateInvestment()">
+                </mat-form-field>
+                <h3>Expected Return</h3>
+                <h1>{{ expectedReturn }}</h1>
+                <button mat-flat-button (click)="toggleClass()" type="submit">Finish</button>
+              </form>
+              <button mat-flat-button color="warn" (click)="toggleClass()">Close</button>
             </ng-template>
             <ng-template #general>
-              <mat-form-field>
-                <input matInput placeholder="Asset Value">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Asset Age">
-              </mat-form-field>
-              <button mat-flat-button (click)="toggleClass()">Finish</button>
+              <form [formGroup]="generalForm" (submit)="submitGeneral()">
+                <mat-form-field appearance="outline">
+                  <mat-label>Asset Value</mat-label>
+                  <input matInput placeholder="Asset Value" formControlName="value" type="number"
+                    (keyup)="calculateGeneral()">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Asset Age</mat-label>
+                  <input matInput placeholder="Asset Age" formControlName="age" type="number"
+                    (keyup)="calculateGeneral()">
+                </mat-form-field>
+                <h3>Annual Payment</h3>
+                <h1>{{ annualPayment }}</h1>
+                <button mat-flat-button (click)="toggleClass()" type="submit">Finish</button>
+              </form>
+              <button mat-flat-button color="warn" (click)="toggleClass()">Close</button>
             </ng-template>
           </div>
           <h2>{{ product.name }}</h2>

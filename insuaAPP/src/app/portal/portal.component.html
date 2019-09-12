@@ -6,8 +6,25 @@
         <app-product *ngFor="let product of products" [product]="product"></app-product>
       </div>
     </mat-tab>
-    <mat-tab label="MY POLICIES">Content 1</mat-tab>
-    <mat-tab label="Third">Content 3</mat-tab>
+    <mat-tab label="MY POLICIES">
+      <div class="policyContainer">
+        <h1>MY POLICIES</h1>
+        <ul>
+          <li *ngFor="let request of requests" class="{{ request.status }}">
+            <div>
+              <h3>Product: </h3>{{ request.productId }}
+            </div>
+            <div>
+              <h3>Type: </h3>{{ request.type }}
+            </div>
+          </li>
+        </ul>
+        <div class="approved">
+
+        </div>
+        <div class="rejected"></div>
+      </div>
+    </mat-tab>
   </mat-tab-group>
 
 </div>

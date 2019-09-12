@@ -24,4 +24,13 @@ export class ProductService {
     this.productData.push(product);
     return true;
   };
+
+  findUserById(productId) {
+    console.log(this.productData.filter(product => product.name === productId));
+    return this.productData.filter(product => product.name === productId);
+  }
+
+  getAll() {
+    return this.productData;
+  }
 }

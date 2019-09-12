@@ -1,5 +1,16 @@
 * {}
 
+h1,
+h3 {
+  color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
+input {
+  color: white;
+}
+
 .product {
   padding: 10px;
   padding-top: 30px;
@@ -18,13 +29,17 @@
     width: 100%;
     background-color: rgb(51, 51, 51);
     z-index: 1;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    padding: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 20px;
+    }
 
     button {
-      margin: auto
+      display: block;
+      margin: auto;
     }
   }
 

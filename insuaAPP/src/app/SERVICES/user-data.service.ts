@@ -14,7 +14,17 @@ export class UserDataService {
       type: 'Admin',
       password: 'tttttttt',
     },
+    {
+      name: 'Jude Otenyo',
+      phone: '0712619962',
+      email: 'judeotenyo@gmail.com',
+      password: 'tttttttt',
+      type: 'User',
+    },
   ];
+  getAllUsers() {
+    return this.userData;
+  }
 
   newUser = (user: UserDetails): boolean => {
     user.type = 'User';
@@ -69,5 +79,8 @@ export class UserDataService {
       return localStorage.getItem('name');
     }
     return false;
+  }
+  findUserById(userId) {
+    return this.userData.filter(user => user.phone === userId);
   }
 }

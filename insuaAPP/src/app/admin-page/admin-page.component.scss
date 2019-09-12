@@ -3,6 +3,10 @@
   min-height: 100%;
 }
 
+h3 {
+  display: inline;
+}
+
 header {
   margin-top: 50px;
   display: flex;
@@ -67,4 +71,9 @@ header {
   aside {
     background-color: gray;
   }
+
+}
+
+.reports {
+  color: white;
 }
