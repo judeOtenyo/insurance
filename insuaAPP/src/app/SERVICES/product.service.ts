@@ -26,9 +26,11 @@ export class ProductService {
   };
 
   findUserById(productId) {
-    console.log(this.productData.filter(product => product.name === productId));
+    // console.log(this.productData.filter(product => product.name === productId));
     return this.productData.filter(product => product.name === productId);
   }
+
+  getUserCount(){}
 
   getAll() {
     return this.productData;

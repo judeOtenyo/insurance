@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { User, UserDetails } from '../CLASSES/user';
 import { Router } from '@angular/router';
+import { RequestService } from './request.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
   isLoggedIn = false;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private requestService: RequestService) {}
   userData: UserDetails[] = [
     {
       name: 'The Administrator',
@@ -88,5 +89,8 @@ export class UserDataService {
   }
   findUserById(userId) {
     return this.userData.filter(user => user.phone === userId);
+  }
+  getPlans(userId) {
+    return this.requestService.getAll().filter(request => request.userId === userId);
   }
 }

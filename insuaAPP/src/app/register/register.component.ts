@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../SERVICES/authentication.service';
 import { UserDataService } from '../SERVICES/user-data.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-register',
@@ -31,5 +32,7 @@ export class RegisterComponent implements OnInit {
   submit() {
     this.userService.newUser(this.newUserForm.value);
     console.log(this.userService.userData);
+    this.router.navigate(['/Portal']);
+    return;
   }
 }

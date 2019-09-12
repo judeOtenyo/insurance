@@ -22,7 +22,7 @@ export class AdminPageComponent implements OnInit {
     desc: new FormControl(''),
   });
   constructor(
-    private productService: ProductService,
+    public productService: ProductService,
     public requestService: RequestService,
     public userData: UserDataService
   ) {}

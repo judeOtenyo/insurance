@@ -76,4 +76,23 @@ header {
 
 .reports {
   color: white;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-rows: auto;
+  gap: 50px;
+  section{
+    background-color: rgba(0, 0, 0, 0.082);
+  }
+    section.users{
+      .user{
+        color: red;
+      }
+    }
+    section.policies{
+      .req{
+        background-color: rgba(0, 0, 0, 0.158);
+        padding: 10px;
+        margin: 30px;
+      }
+    }
 }

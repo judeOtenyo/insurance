@@ -93,7 +93,10 @@
         <section class="users">
           <h1>Users</h1>
           <mat-list>
-            <mat-list-item *ngFor="let user of userData.getAllUsers()">{{ user.name }}</mat-list-item>
+            <mat-list-item *ngFor="let user of userData.getAllUsers()">
+              <div class="user">{{ user.name }}</div>
+              <li *ngFor="let product of userData.getPlans()">one</li>
+            </mat-list-item>
           </mat-list>
         </section>
         <section class="products">
@@ -105,7 +108,11 @@
         <section class="policies">
           <H1>Active Plans</H1>
           <mat-list>
-            <mat-list-item *ngFor="let product of requestService.getAll()">{{ product.name }}</mat-list-item>
+            <mat-list-item *ngFor="let request of requestService.getAll()">
+                <p> <span style="font-weight: 700;">USER:</span>{{ request.user.name }}</p>
+                <p> <span style="font-weight: 700;">PLAN:</span>{{request.product.name}}</p>
+                <p> <span style="font-weight: 700;">TYPE:</span>{{request.product.type}}</p>
+            </mat-list-item>
           </mat-list>
         </section>
       </div>
