@@ -3,18 +3,18 @@
       <img src="/assets/logo.png" alt="logo" height="70px" />
       <ul>
         <li>
-          <button *ngIf="userData.checkLoginStatus()" [routerLink]="['/Login']" routerLinkActive="active"
+          <button  *ngIf="!userData.isLoggedIn" [routerLink]="['/Login']" routerLinkActive="active"
             mat-raised-button color="secondary">
             Login
           </button></li>
         <li>
-          <button [routerLink]="['/Register']" routerLinkActive="active" mat-raised-button color="secondary">
+          <button [routerLink]="['/Register']"  *ngIf="!userData.isLoggedIn" mat-raised-button color="secondary">
             Register
           </button>
         </li>
-        <li><button mat-raised-button [routerLink]="['/Portal']">Portal</button></li>
-        <li><button mat-raised-button [routerLink]="['/Admin']">Admin</button></li>
-        <li>
+        <li *ngIf="userData.isLoggedIn" ><button mat-raised-button  [routerLink]="['/Portal']">Portal</button></li>
+        <li *ngIf="userData.isLoggedIn && isAdmin" ><button mat-raised-button [routerLink]="['/Admin']">Admin</button></li>
+        <li *ngIf="userData.isLoggedIn">
           <button (click)="userData.clearUser()" routerLinkActive=" active" mat-raised-button color="secondary">
             Log Out
           </button>

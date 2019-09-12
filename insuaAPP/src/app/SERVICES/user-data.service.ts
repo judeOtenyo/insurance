@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { User, UserDetails } from '../CLASSES/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService {
-  constructor() {}
+  isLoggedIn = false;
+  constructor(private router: Router) {}
   userData: UserDetails[] = [
     {
       name: 'The Administrator',
@@ -15,7 +17,7 @@ export class UserDataService {
       password: 'tttttttt',
     },
     {
-      name: 'Jude Otenyo',
+      name: 'Test User',
       phone: '0712619962',
       email: 'judeotenyo@gmail.com',
       password: 'tttttttt',
@@ -48,13 +50,17 @@ export class UserDataService {
   }
 
   storeUser(user: UserDetails) {
+    this.isLoggedIn = true;
     localStorage.setItem('id', user.phone);
     localStorage.setItem('name', user.name);
+    localStorage.setItem('type', user.type);
     return;
   }
 
   clearUser() {
     localStorage.clear();
+    this.isLoggedIn = false;
+    this.router.navigate(['/Home']);
     return;
   }
 

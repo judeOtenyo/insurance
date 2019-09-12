@@ -9,7 +9,7 @@
         <p>Please <a href="/Login">login</a> if you already have an account</p>
         <p>or Try again later</p>
       </div>
-      <div class="" *ngIf="userService.checkLoginStatus()">
+      <div class="" *ngIf="userService.isLoggedIn">
         <h4>Hi, {{ userService.getName() }}
         </h4>
         <p>You are already Logged</p>
