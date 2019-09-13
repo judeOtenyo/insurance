@@ -9,20 +9,38 @@
     <mat-tab label="MY POLICIES">
       <div class="policyContainer">
         <h1>MY POLICIES</h1>
-        <ul>
-          <li *ngFor="let request of requests" class="{{ request.status }}">
-            <div>
-              <h3>Product: </h3>{{ request.productId }}
-            </div>
-            <div>
-              <h3>Type: </h3>{{ request.type }}
-            </div>
-          </li>
-        </ul>
+        <div class="pending">
+          <h1>Pending</h1>
+          <ul style="">
+            <li *ngFor="let request of requests">
+                <span *ngIf="request.status === 'pending'">
+                    <p>Name:{{ request.product.name }}</p>
+                    <p>Type:{{ request.product.type }}</p>
+                </span>
+            </li>
+          </ul>
+        </div>
         <div class="approved">
-
+          <h1>Approved</h1>
+          <ul>
+            <li *ngFor="let request of requests">
+                <span *ngIf="request.status === 'granted'">
+                    <p>Name:{{ request.product.name }}</p>
+                    <p>Type:{{ request.product.type }}</p>
+                </span>
+            </li>
+          </ul>
         </div>
         <div class="rejected"></div>
+        <h1>Rejected</h1>
+        <ul>
+          <li *ngFor="let request of requests">
+              <span *ngIf="request.status === 'blocked'">
+                  <p>Name:{{ request.product.name }}</p>
+                  <p>Type:{{ request.product.type }}</p>
+                </span>
+          </li>
+        </ul>
       </div>
     </mat-tab>
   </mat-tab-group>

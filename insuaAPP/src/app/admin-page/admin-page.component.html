@@ -71,7 +71,7 @@
               <h3>contribution:</h3> {{ mainItem?.contribution }}
             </div>
             <div>
-              <h3>Type:</h3> {{ mainItem?.amount * mainItem?.years * 12 *1.3 }}
+              <h3>Type:</h3> {{ mainItem?.contribution * mainItem?.years * 12 *1.3 }}
             </div>
           </ng-template>
           <ng-template #general>
@@ -106,7 +106,7 @@
           </mat-list>
         </section>
         <section class="policies">
-          <H1>Active Plans</H1>
+          <H1>ALL Plans</H1>
           <mat-list>
             <mat-list-item *ngFor="let request of requestService.getAll()">
                 <p> <span style="font-weight: 700;">USER:</span>{{ request.user.name }}</p>
